@@ -2,13 +2,9 @@ import Logo from "./Logo";
 import SearchInput from "./SearchInput";
 import NavMenus from "./NavMenus";
 import Link from "next/link";
-import {
-  Bars3Icon,
-  CreditCardIcon,
-  MagnifyingGlassIcon,
-  UserCircleIcon,
-} from "@heroicons/react/20/solid";
+import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { useEffect, useState } from "react";
+import { AiFillGithub } from "react-icons/ai";
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
@@ -80,12 +76,13 @@ const Navbar = () => {
       </div>
 
       <div className={style.iconsContainer}>
-        <UserCircleIcon className={`${style.icons} ${style.desktopIcons}`} />
-        <CreditCardIcon className={`${style.icons} ${style.desktopIcons}`} />
-        <MagnifyingGlassIcon
-          className={`${style.icons} ${style.mobileIcons}`}
-        />
-        <Bars3Icon className={`${style.icons} ${style.tabletIcons}`} />
+        <a
+          href={"https://github.com/namdao2000/lazersea"}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <AiFillGithub className={`${style.icons}`} />
+        </a>
       </div>
     </header>
   );

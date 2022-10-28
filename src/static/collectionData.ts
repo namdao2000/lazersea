@@ -2,9 +2,9 @@ import banner from "../../assets/banner.png";
 import logo from "../../assets/logo.png";
 
 export const collectionData = {
-  name: "CryptoPunks",
+  name: "CryptoKitties",
   description:
-    "CryptoPunks launched as a fixed set of 10,000 items in mid-2017 and became one of the inspirations for the ERC-721 standard. They have been featured in places like The New York Times, Christie’s of London, Art|Basel Miami, and The PBS NewsHour.",
+    "CryptoKitties is a game centered around breedable, collectible, and oh-so-adorable creatures we call CryptoKitties! Each cat is one-of-a-kind and 100% owned by you; it cannot be replicated, taken away, or destroyed.",
   isVerified: true,
   banner_image_url: banner,
   image_url: logo,
@@ -14,5 +14,6 @@ export const collectionData = {
     num_owners: 3500,
     floor_price: 22.6,
   },
+  creator: "A874AA",
   address: "0x8a90cab2b38dba80c64b7734e58ee1db38b8992e",
 };

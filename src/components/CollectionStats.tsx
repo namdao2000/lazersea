@@ -8,8 +8,8 @@ const style = {
   statTitle: `text-sm text-gray-400`,
 };
 
-const CollectionStats = ({ stats }) => {
-  const formatStat = (stat) => {
+const CollectionStats = ({ stats }: { stats: any }) => {
+  const formatStat = (stat: any) => {
     if (!stat) return;
 
     if (stat >= 1000000000) {
@@ -40,14 +40,14 @@ const CollectionStats = ({ stats }) => {
       </div>
       <div className={style.statContainer}>
         <div className={style.statWithEthContainer}>
-          <Image height={20} width={20} src="/eth-logo.svg" alt="Eth Logo" />
+          <Image src={`/matic-logo.png`} height={20} width={20} />
           <p className={style.statItem}>{formatStat(stats?.floor_price)}</p>
         </div>
         <span className={style.statTitle}>floor price</span>
       </div>
       <div className={`${style.statContainer}`}>
         <div className={style.statWithEthContainer}>
-          <Image height={20} width={20} src="/eth-logo.svg" alt="Eth Logo" />
+          <Image src={`/matic-logo.png`} height={20} width={20} />
           <p className={style.statItem}>{formatStat(stats?.total_volume)}</p>
         </div>
         <span className={style.statTitle}>volume traded</span>

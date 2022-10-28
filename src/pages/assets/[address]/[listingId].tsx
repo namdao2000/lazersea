@@ -33,6 +33,14 @@ export default function NFT() {
     }
   );
 
+  const buyoutListing = async () => {
+    try {
+      await marketplace?.buyoutListing(BigNumber.from(listingId), 1);
+    } catch (e) {
+      alert(e);
+    }
+  };
+
   if (isLoading)
     return (
       <div className={"flex h-screen items-center justify-center"}>
@@ -48,7 +56,7 @@ export default function NFT() {
           <div className="flex w-full items-center justify-between">
             <div className="flex items-center space-x-1 text-base">
               <span className="cursor-pointer text-blue-500">
-                Cool NFT Collection
+                CryptoKitties
               </span>
               <MdVerified className="h-5 w-5 text-blue-500" />
             </div>
@@ -95,6 +103,7 @@ export default function NFT() {
             </div>
           </div>
 
+          {/*Bottom Section*/}
           <div className={"flex flex-col rounded-lg border border-[#e8ebe5]"}>
             <div className={"border-b border-[#e8ebe5] p-3"}>
               <div
@@ -106,7 +115,7 @@ export default function NFT() {
                 <p>Sale ends November 26, 2022 at 7:39pm GMT+11</p>
               </div>
             </div>
-            <div className={"flex flex-col gap-y-2 p-3"}>
+            <div className={"flex flex-col gap-y-2 bg-slate-50 p-3"}>
               <div className={"text-sm text-gray-500"}>Current Price</div>
               <div className={`flex items-center space-x-3`}>
                 <Image src={`/matic-logo.png`} height={24} width={24} />
@@ -118,8 +127,9 @@ export default function NFT() {
                 <button
                   type="button"
                   className="mr-2 mb-2 rounded-lg bg-blue-700 px-5 py-4 text-base font-bold text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  onClick={buyoutListing}
                 >
-                  Add to cart
+                  Purchase
                 </button>
 
                 <button

@@ -30,9 +30,9 @@ export default function Listings() {
 
   return (
     <div
-      className={`xlg 2xl: mx-auto grid max-w-fit flex-1 
-    grid-cols-1 gap-8 p-10 pt-24 
-    md:grid-cols-2 md:pt-0 
+      className={`mx-auto grid max-w-fit flex-1 
+    grid-cols-1 gap-8 p-10 
+    md:grid-cols-2 
     lg:grid-cols-3 xl:grid-cols-4`}
     >
       {nfts &&

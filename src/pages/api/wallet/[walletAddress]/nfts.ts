@@ -21,9 +21,11 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  const { walletAddress } = req.query;
+
   const options = {
     method: "GET",
-    url: "https://deep-index.moralis.io/api/v2/0xfF92eC739f5B97c16A52Cc99706690d7e2466cB0/nft",
+    url: `https://deep-index.moralis.io/api/v2/${walletAddress}/nft`,
     params: { chain: "mumbai", format: "decimal" },
     headers: {
       accept: "application/json",
@@ -50,6 +52,8 @@ export default async function handle(
     const imgUrlResults = (await Promise.all(imgUrlPromises)).filter(
       (data) => !!data?.tokenUri && !!data?.name
     );
+
+    console.log(imgUrlResults);
 
     res.status(200).json(imgUrlResults);
   } catch (error) {

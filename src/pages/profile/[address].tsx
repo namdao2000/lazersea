@@ -82,7 +82,7 @@ export default function Wallet() {
             <div className={"flex gap-x-2"}>
               <button
                 className={
-                  "flex grow items-center justify-center gap-x-2 rounded-xl border-2 border-[#e8ebe5] p-3 font-semibold hover:shadow-md"
+                  "flex w-1/2 items-center justify-center gap-x-2 rounded-xl border-2 border-[#e8ebe5] p-3 font-semibold hover:shadow-md"
                 }
               >
                 <IoFilterSharp />
@@ -90,7 +90,7 @@ export default function Wallet() {
               </button>
               <button
                 className={
-                  "flex grow items-center justify-center gap-x-2 rounded-xl border-2 border-[#e8ebe5] p-3 font-semibold hover:shadow-md"
+                  "flex w-1/2 items-center justify-center gap-x-2 rounded-xl border-2 border-[#e8ebe5] p-3 font-semibold hover:shadow-md"
                 }
               >
                 <TbArrowsSort />

@@ -29,12 +29,7 @@ export default function Listings() {
   // if (!nfts.length) return <Loading />;
 
   return (
-    <div
-      className={`mx-auto grid max-w-fit flex-1 
-    grid-cols-1 gap-8 p-10 
-    md:grid-cols-2 
-    lg:grid-cols-3 xl:grid-cols-4`}
-    >
+    <div className={`nft-grid`}>
       {nfts &&
         nfts.map((nft) => {
           return (
@@ -43,7 +38,13 @@ export default function Listings() {
               key={nft.assetContractAddress + nft.id}
             >
               <a>
-                <NFTCard nft={nft} />
+                <NFTCard
+                  nft={{
+                    name: nft.asset.name as string,
+                    tokenUri: nft.asset.image as string,
+                    price: nft.buyoutCurrencyValuePerToken?.displayValue,
+                  }}
+                />
               </a>
             </Link>
           );

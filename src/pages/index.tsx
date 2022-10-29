@@ -13,7 +13,7 @@ const style = {
   container: `relative flex min-h-screen flex-col`,
   bannerContainer: `absolute h-1/3 w-full`,
   banner: `object-cover`,
-  collectionInfoWrapper: `absolute flex flex-col w-full top-1/3 z-10 -translate-y-16`,
+  collectionInfoWrapper: `absolute flex flex-col w-full top-1/3 z-10 -translate-y-16 p-3`,
   collectionInfoContainer: `flex flex-col items-center space-y-4`,
   collectionLogoContainer: `flex items-center justify-center rounded-full border-4 border-gray-100`,
   collectionLogo: `rounded-full object-cover`,

@@ -1,13 +1,13 @@
-import {
-  AuctionListing,
-  DirectListing,
-} from "@thirdweb-dev/sdk/dist/declarations/src/evm/types/marketplace";
 import Image from "next/image";
 
 export default function NFTCard({
   nft,
 }: {
-  nft: AuctionListing | DirectListing;
+  nft: {
+    tokenUri: string;
+    name: string;
+    price?: string;
+  };
 }) {
   return (
     <div
@@ -19,23 +19,23 @@ export default function NFTCard({
         className={
           "h-3/4 rounded-lg transition duration-300 ease-in-out hover:scale-105"
         }
-        src={nft.asset.image as string}
+        src={nft.tokenUri as string}
         width={244}
         height={244}
         objectFit={"cover"}
       />
       <div className={`flex h-1/4 flex-col gap-y-3 p-3`}>
-        <div className={`text-sm font-semibold`}>{nft.asset.name}</div>
+        <div className={`text-sm font-semibold`}>{nft.name}</div>
 
-        <div className={``}>
-          <div className={`text-xs font-semibold`}>Price</div>
-          <div className={`flex items-center space-x-1`}>
-            <Image src={`/matic-logo.png`} height={16} width={16} />
-            <p className={`text-base font-semibold`}>
-              {nft.buyoutCurrencyValuePerToken?.displayValue}
-            </p>
+        {nft.price && (
+          <div>
+            <div className={`text-xs font-semibold`}>Price</div>
+            <div className={`flex items-center space-x-1`}>
+              <Image src={`/matic-logo.png`} height={16} width={16} />
+              <p className={`text-base font-semibold`}>{nft.price}</p>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

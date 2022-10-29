@@ -2,11 +2,13 @@ import Logo from "./Logo";
 import SearchInput from "./SearchInput";
 import NavMenus from "./NavMenus";
 import Link from "next/link";
-import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import { UserCircleIcon } from "@heroicons/react/20/solid";
 import { useEffect, useState } from "react";
 import { AiFillGithub } from "react-icons/ai";
+import { useAddress } from "@thirdweb-dev/react";
 
 const Navbar = () => {
+  const address = useAddress();
   const [scrolling, setScrolling] = useState(false);
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;
@@ -76,12 +78,15 @@ const Navbar = () => {
       </div>
 
       <div className={style.iconsContainer}>
+        <Link href={`/profile/${address}`}>
+          <UserCircleIcon className={style.icons} />
+        </Link>
         <a
           href={"https://github.com/namdao2000/lazersea"}
           target="_blank"
           rel="noreferrer"
         >
-          <AiFillGithub className={`${style.icons}`} />
+          <AiFillGithub className={style.icons} />
         </a>
       </div>
     </header>

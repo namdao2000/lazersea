@@ -36,7 +36,7 @@ export default function Wallet() {
         {/* Profile */}
         <div
           className={
-            "profile-placeholder absolute bottom-5 left-4 h-[168px] w-[168px] rounded-full border-[6px] border-white shadow-md"
+            "profile-placeholder absolute bottom-5 left-4 h-[168px] w-[168px] rounded-full border-[6px] border-white shadow-md transition-all duration-300 hover:-translate-y-2"
           }
         ></div>
       </div>

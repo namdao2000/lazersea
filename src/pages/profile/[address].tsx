@@ -16,8 +16,8 @@ export default function Wallet() {
     ["nftsData", walletAddress],
     () => fetch(`/api/wallet/${walletAddress}/nfts`).then((res) => res.json()),
     {
-      retry: process.env.NODE_ENV === "production",
-      refetchOnWindowFocus: process.env.NODE_ENV === "production",
+      retry: false,
+      refetchOnWindowFocus: false,
     }
   );
 
@@ -98,19 +98,23 @@ export default function Wallet() {
               </button>
             </div>
           </div>
-          <div className={`nft-grid`}>
-            {data?.map((nft: any, index: number) => {
-              return (
-                <NFTCard
-                  key={index}
-                  nft={{
-                    name: nft.name,
-                    tokenUri: nft.tokenUri,
-                  }}
-                />
-              );
-            })}
-          </div>
+          {data?.length === 0 ? (
+            <div>No NFTs were found...</div>
+          ) : (
+            <div className={`nft-grid`}>
+              {data?.map((nft: any, index: number) => {
+                return (
+                  <NFTCard
+                    key={index}
+                    nft={{
+                      name: nft.name,
+                      tokenUri: nft.tokenUri,
+                    }}
+                  />
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </TopNavbarLayout>

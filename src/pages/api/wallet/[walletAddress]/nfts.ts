@@ -53,8 +53,6 @@ export default async function handle(
       (data) => !!data?.tokenUri && !!data?.name
     );
 
-    console.log(imgUrlResults);
-
     res.status(200).json(imgUrlResults);
   } catch (error) {
     console.error(error);

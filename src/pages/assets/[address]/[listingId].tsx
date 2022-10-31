@@ -14,6 +14,7 @@ import { BsFillShareFill, BsThreeDotsVertical } from "react-icons/bs";
 import { GrShare } from "react-icons/gr";
 import { BigNumber } from "ethers";
 import { IoMdPricetag } from "react-icons/io";
+import { getCurrencyURIs } from "../../../utils/getCurrencyURIs";
 
 export default function NFT() {
   const router = useRouter();
@@ -41,7 +42,7 @@ export default function NFT() {
     }
   };
 
-  if (isLoading)
+  if (isLoading || !nft)
     return (
       <div className={"flex h-screen items-center justify-center"}>
         <Loading />
@@ -81,7 +82,11 @@ export default function NFT() {
           <div className={"flex flex-col rounded-lg border border-[#e8ebe5]"}>
             <div>
               <div className={`flex items-center justify-between p-3`}>
-                <Image src={`/matic-logo.png`} height={20} width={20} />
+                <Image
+                  src={getCurrencyURIs(nft.buyoutCurrencyValuePerToken.symbol)}
+                  height={20}
+                  width={20}
+                />
                 <div className={"flex items-center space-x-2 text-gray-500"}>
                   <p>18</p> <AiOutlineHeart size={20} />
                 </div>
@@ -118,7 +123,11 @@ export default function NFT() {
             <div className={"flex flex-col gap-y-2 bg-slate-50 p-3"}>
               <div className={"text-sm text-gray-500"}>Current Price</div>
               <div className={`flex items-center space-x-3`}>
-                <Image src={`/matic-logo.png`} height={24} width={24} />
+                <Image
+                  src={getCurrencyURIs(nft.buyoutCurrencyValuePerToken.symbol)}
+                  height={24}
+                  width={24}
+                />
                 <p className={`text-3xl font-semibold`}>
                   {nft?.buyoutCurrencyValuePerToken?.displayValue}
                 </p>

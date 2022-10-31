@@ -3,6 +3,7 @@ import Loading from "./Loading";
 import NFTCard from "./NFTCard";
 import Link from "next/link";
 import { useQuery } from "react-query";
+import { getCurrencyURIs } from "../utils/getCurrencyURIs";
 
 export default function Listings() {
   const { contract } = useContract(
@@ -19,14 +20,12 @@ export default function Listings() {
       enabled: !!contract,
     }
   );
-
   if (isLoading)
     return (
       <div className={"mb-3 flex w-screen justify-center"}>
         <Loading />
       </div>
     );
-  // if (!nfts.length) return <Loading />;
 
   return (
     <div className={`nft-grid`}>
@@ -43,6 +42,9 @@ export default function Listings() {
                     name: nft.asset.name as string,
                     tokenUri: nft.asset.image as string,
                     price: nft.buyoutCurrencyValuePerToken?.displayValue,
+                    currencyURI: getCurrencyURIs(
+                      nft.buyoutCurrencyValuePerToken.symbol
+                    ),
                   }}
                 />
               </a>
